@@ -28,10 +28,10 @@ jobs:
 
       - name: Save Test Results Locally
         run: |
-          mkdir -p ~/module5-nodejs-cicd
-          cp test-results/test-results.txt ~/module5-nodejs-cicd/test-results.txt
+          mkdir -p $HOME/module5-nodejs-cicd
+          cp test-results/test-results.txt $HOME/module5-nodejs-cicd/test-results.txt
 
-      # Artifact upload temporarily disabled due to GitHub quota
+    # Artifact upload temporarily disabled due to GitHub quota
       # - name: Upload Test Artifact
       #   uses: actions/upload-artifact@v4
       #   with:
