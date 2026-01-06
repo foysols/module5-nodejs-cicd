@@ -31,11 +31,12 @@ jobs:
           mkdir -p ~/module5-nodejs-cicd
           cp test-results/test-results.txt ~/module5-nodejs-cicd/test-results.txt
 
-#      - name: Upload Test Artifact
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: test-results
-#          path: test-results/test-results.txt
+      # Artifact upload temporarily disabled due to GitHub quota
+      # - name: Upload Test Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: test-results
+      #     path: test-results/test-results.txt
 
   deploy:
     name: Deploy Application
@@ -53,14 +54,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Download Test Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: test-results
-          path: .
-
-      - name: Display Test Results
-        run: cat test-results.txt
+      - name: Display Test Results from Local Copy
+        run: cat ~/module5-nodejs-cicd/test-results.txt
 
       - name: Deploy Node.js App with PM2
         run: |
